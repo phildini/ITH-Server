@@ -2,6 +2,7 @@ from django.template import Context, loader
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, get_object_or_404
+from django.contrib.auth.models import User
 from teams.models import Team
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
@@ -113,7 +114,11 @@ def index(request):
 
 def detail(request, team_id):
 	t = get_object_or_404(Team, pk=team_id)
-	return render_to_response('teams/detail.html', {'team': t}, context_instance=RequestContext(request))
+	u_mem='None'
+	if request.user.is_authenticated():
+		if t.members.filter(username__exact=request.user):
+			u_mem=t.members.get(pk=request.user.id)
+	return render_to_response('teams/detail.html', {'team': t, 'mem': u_mem}, context_instance=RequestContext(request))
 
 @login_required
 def edit(request, team_id):
@@ -174,3 +179,14 @@ def add(request):
 
 def about(request):
 	return render_to_response('teams/about.html')
+
+@login_required
+def join(request, team_id):
+	t= get_object_or_404(Team, pk=team_id)
+	curr_user= get_object_or_404(User, pk=request.user.id)
+	if curr_user in t.members.all():
+		return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))
+	else:
+		t.members.add(curr_user)
+		t.save()
+		return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))

@@ -7,6 +7,7 @@ urlpatterns = patterns('teams.views',
 	url(r'^(?P<team_id>\d+)/edit/$', 'edit'),
 	url(r'^add/$', 'add'),
 	url(r'^about/', 'about'),
+	url(r'^(?P<team_id>\d+)/join/$', 'join'),
 )
 
 urlpatterns += staticfiles_urlpatterns()
