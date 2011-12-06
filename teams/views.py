@@ -171,3 +171,6 @@ def add(request):
         else:
                 form = TeamEdit()
         return render_to_response('teams/edit.html', {'form':form, 'team':t}, context_instance=RequestContext(request))
+
+def about(request):
+	return render_to_response('teams/about.html')
