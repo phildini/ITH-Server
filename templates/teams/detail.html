@@ -26,7 +26,8 @@
 <p>
 
 {%if mem != 'None' %}
-	<a href="/teams/{{team.id}}/edit">Edit Team Info</a><br><br>
+	<a href="/teams/{{team.id}}/edit">Edit Team Info</a> or 
+	<a href="/teams/{{team.id}}/delete">Delete this Team</a><br><br>
 {%endif%}
 {%if mem == 'None'%}
 	<a href="/teams/{{team.id}}/join">Join this team</a><br><br>

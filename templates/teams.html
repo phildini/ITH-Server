@@ -12,10 +12,13 @@
 		<div class="menu_block">
 			<table>
 				<tr>
+					{%if user.is_authenticated %}
+                                                <td><a href="">Welcome {{user}}</a></td>
+                                        {%endif%}
 					<td><a href="/teams/">Teams List</a></td>
 					<td><a href="/teams/about/">About Us</a></td>
 					{%if user.is_authenticated %}
-						<td><a href="/accounts/profile/{{user.id}}">{{user}}'s Profile</a></td>
+						<td><a href="/accounts/{{user.id}}/profile/">Profile</a></td>
 						<td><a href="/accounts/logout/">Logout</a></td>
 					{%endif%}
 					{%if not user.is_authenticated %}

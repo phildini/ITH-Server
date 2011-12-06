@@ -148,6 +148,9 @@ def edit(request, team_id):
 				else:
 					t.state = form.cleaned_data['state']
 			t.save()
+			if not t.members.filter(username__exact=request.user):
+				t.members.add(get_object_or_404(User, pk=request.user.id))
+
 			return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))
 	else:
 		form = TeamEdit_specific()
@@ -189,4 +192,14 @@ def join(request, team_id):
 	else:
 		t.members.add(curr_user)
 		t.save()
+		return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))
+
+@login_required
+def delete(request, team_id):
+	t= get_object_or_404(Team, pk=team_id)
+	curr_user= get_object_or_404(User, pk=request.user.id)
+	if t.members.filter(username__exact=request.user):
+		t.delete()
+		return HttpResponseRedirect(reverse('teams.views.index'))
+	else:
 		return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))

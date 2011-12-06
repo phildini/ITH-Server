@@ -7,14 +7,34 @@
 </head>
 
 <body>
-        <div class="container">
-                <div class="header_block" onclick="javascript: window.location.href = 'http://www.insertteamhere.com';" ><h1>Insert Team Here</h1></div>
-                <div class="main">
-                {% block content %}{% endblock %}
-                </div>
-                <div class="footer_block">
-                <h4>Created by Team Treppenwitz: Linus Foster, Kelsey Hawley & Philip James</h4>
-                </div>
-        </div>
+	<div class="container">
+		<div class="header_block" onclick="javascript: window.location.href = 'http://www.insertteamhere.com';"><h1>Insert Team Here</h1></div>
+		<div class="menu_block">
+			<table>
+				<tr>
+					{%if user.is_authenticated %}
+                                                <td><a href="">Welcome {{user}}</a></td>
+                                        {%endif%}
+					<td><a href="/teams/">Teams List</a></td>
+					<td><a href="/teams/about/">About Us</a></td>
+					{%if user.is_authenticated %}
+						<td><a href="/accounts/{{user.id}}/profile/">Profile</a></td>
+						<td><a href="/accounts/logout/">Logout</a></td>
+					{%endif%}
+					{%if not user.is_authenticated %}
+						<td><a href="/accounts/login/">Login</a></td>
+						<td><a href="/accounts/register">Register</a></td>
+					{%endif%}
+
+				</tr>
+			</table>
+		</div> 
+		<div class="main">
+		{% block content %}{% endblock %}
+		</div>
+		<div class="footer_block">
+		<h4>Created by Team Treppenwitz: Philip James, Kelsey Hawley & Linus Foster</h4>
+		</div>
+	</div>
 </body>
 </html>
