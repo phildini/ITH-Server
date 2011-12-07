@@ -1,8 +1,8 @@
-{%extends "teams.html"%}
+{%extends "base.html"%}
 
 {% block title %}Editing {{team.team_name}}{% endblock %}
 
-{% block main %}
+{% block content %}
 	<h1>{{team.team_name}}</h1>
 	<form action="/teams/{{team.id}}/edit/" method="post">{% csrf_token %}{{form.as_p}}
 		<input type="submit" value="Submit" />

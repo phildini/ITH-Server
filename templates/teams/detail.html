@@ -1,9 +1,9 @@
-{% extends "teams.html" %}
+{% extends "base.html" %}
 
 {% block title %}{{team.team_name}}{%endblock%}
 
 
-{%block main%}
+{%block content%}
 <h1>{{team.team_name}}</h1>
 
 {% if status_message %}<p><strong>{{ status_message }}</strong></p>{% endif %}
