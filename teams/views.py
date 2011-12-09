@@ -178,7 +178,7 @@ def add(request):
                         return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))
         else:
                 form = TeamEdit()
-        return render_to_response('teams/edit.html', {'form':form, 'team':t}, context_instance=RequestContext(request))
+        return render_to_response('teams/add.html', {'form':form, 'team':t}, context_instance=RequestContext(request))
 
 def about(request):
 	return render_to_response('teams/about.html')
