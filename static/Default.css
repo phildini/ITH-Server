@@ -17,14 +17,14 @@ body{
 	margin-top: auto;
 	width: 900px; 
 	overflow: hidden;
-	border-radius:25px;
+	border-radius:10px;
 }
 .main{
     background-color:#ffffff;
 	margin: auto;
 	width: 870px; 
 	overflow: hidden;
-	border-radius:25px;
+	border-radius:10px;
     padding: 0 15px;
 }
 .main a:hover{color:blue;}
@@ -38,11 +38,11 @@ body{
 	height:100px;
 	overflow: hidden;
 	background-color:#2e367d;
-	border-radius:25px;
+	border-radius:10px;
 }
 .header_block h1{
 	color: white;
-	font-family:"Comic Sans MS";
+	font-family:"Lucida Grande";
 	font-size: 44px;
 	margin: 20px 30px;
 }
@@ -53,7 +53,7 @@ body{
 	padding-top: 10px;
 	background-color: #404ab1;
 	color:white;
-	border-radius:15px;	
+	border-radius:10px;	
 }
 .menu_block a:link, a:hover, a:visited{
 	font-weight: bold; 
@@ -68,19 +68,29 @@ body{
 }
 .footer_block{
 	/*background-image:url(images/footer_banner.jpg);*/
+	font-weight:normal;
 	float:left;
 	border:0px;
 	padding:0px;
 	width:900px;
 	height:106px;
 	background-color: #2e367d;
-	border-radius:25px;
+	border-radius:10px;
 }
 .footer_block h4{
-	margin: 20px auto;
-	width:70%;
-	font-family:"Comic Sans MS";
+	text-align:center;
+	//margin: 20px auto;
+	//width:70%;
+	font-family:"Lucida Grande";
 	color: white;
+}
+.footer_block a:link, a:visited{
+	font-family:"Lucida Grande";
+	color: white;
+	text-decoration:none;
+}
+.footer_block a:hover{
+	font-weight:bold;
 }
 
 /*for the welcome-login page*/
