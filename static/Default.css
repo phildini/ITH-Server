@@ -27,6 +27,8 @@ body{
 	border-radius:25px;
     padding: 0 15px;
 }
+.main a:hover{color:blue;}
+.main a:visited{color:purple;}
 .header_block{
     /*position:relative;*/
 	background-image:url(images/header_banner.jpg);
@@ -38,6 +40,32 @@ body{
 	background-color:#2e367d;
 	border-radius:25px;
 }
+.header_block h1{
+	color: white;
+	font-family:"Comic Sans MS";
+	font-size: 44px;
+	margin: 20px 30px;
+}
+.menu_block{
+	padding-left: 30px;
+	padding-bottom: 10px;
+	padding-right: 30px;
+	padding-top: 10px;
+	background-color: #404ab1;
+	color:white;
+	border-radius:15px;	
+}
+.menu_block a:link, a:hover, a:visited{
+	font-weight: bold; 
+	text-decoration: none; 
+	color: white; 
+	font-family: sans-serif, "Lucida Grande", Verdana, Arial;
+}
+.menu_block table td{
+	width:auto;
+	padding: 0px 10px;
+	text-align:center;
+}
 .footer_block{
 	/*background-image:url(images/footer_banner.jpg);*/
 	float:left;
@@ -47,6 +75,12 @@ body{
 	height:106px;
 	background-color: #2e367d;
 	border-radius:25px;
+}
+.footer_block h4{
+	margin: 20px auto;
+	width:70%;
+	font-family:"Comic Sans MS";
+	color: white;
 }
 
 /*for the welcome-login page*/
