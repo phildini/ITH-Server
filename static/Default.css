@@ -126,7 +126,7 @@ table .Login_panel {
 #member_table{ margin:10px 75px; width:450px;}
 #member_table td,#member_table th{ 
     background:#2e367d;
-    border-radius: 15px;
+    border-radius: 10px;
     color:#ffffff;
     margin:5px 5px;
     padding:5px 10px;
