@@ -6,9 +6,10 @@ from django.contrib.auth.models import User
 from teams.models import Team
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from choices import *
 from django import forms
 import datetime
-
+"""
 STATE_CHOICES=(
 	('None', '--State--'),
 	('AL', 'Alabama'),
@@ -80,11 +81,11 @@ PROJ_CHOICES=(
 	('Web Application','Web Application'),
 	('Multimedia Project', 'Multimedia Project')
 )
-
+"""
 class TeamEdit(forms.Form):
 	name = forms.CharField(max_length=200, required=False)
-	genre = forms.ChoiceField(choices=GENRE_CHOICES, required=False)
 	project_type = forms.ChoiceField(choices=PROJ_CHOICES, required=False)
+	genre = forms.ChoiceField(choices=GENRE_CHOICES, required=False)
 	city = forms.CharField(max_length=200, required=False)
 	state = forms.ChoiceField(choices=STATE_CHOICES, required=False)
 	

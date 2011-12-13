@@ -13,7 +13,7 @@
 			<table>
 				<tr>
 					{%if user.is_authenticated %}
-                                                <td><a href="">Welcome {{user}}</a></td>
+                                                <td>Welcome {{user.first_name}}</td>
                                         {%endif%}
 					<td><a href="/teams/">Teams List</a></td>
 					<td><a href="/teams/about/">About Us</a></td>

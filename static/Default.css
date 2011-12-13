@@ -25,7 +25,7 @@ body{
 	width: 870px; 
 	overflow: hidden;
 	border-radius:10px;
-    padding: 0 15px;
+    	padding: 0 15px;
 }
 .main a:hover{color:blue;}
 .main a:visited{color:purple;}
@@ -65,6 +65,8 @@ body{
 	width:auto;
 	padding: 0px 10px;
 	text-align:center;
+	color:white;
+	font-weight:bold;
 }
 .footer_block{
 	/*background-image:url(images/footer_banner.jpg);*/
