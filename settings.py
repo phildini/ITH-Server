@@ -1,5 +1,6 @@
 # Django settings for insertteamhere project.
-from registration_defaults.settings import *
+#from registration_defaults.settings import *
+import socket
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -10,16 +11,29 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/home/ubuntu/ith.db',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+if socket.gethostname() == 'blackwillow':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+            'NAME': '/home/ubuntu/ith.db',                      # Or path to database file if using sqlite3.
+            'USER': '',                      # Not used with sqlite3.
+            'PASSWORD': '',                  # Not used with sqlite3.
+            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        }
     }
-}
+
+if socket.gethostname() == 'ChaosRedwood.local':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite$
+            'NAME': '/Users/phildini/Dropbox/Projects/ITH-Server/ith.db',                      # Or path to database file if using sqlite3.
+            'USER': '',                      # Not used with sqlite3.
+            'PASSWORD': '',                  # Not used with sqlite3.
+            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        }
+    }
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -69,13 +83,17 @@ STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+
+if socket.gethostname() == 'blackwillow':
+    STATICFILES_DIRS = (
+        # Put strings here, like "/home/html/static" or "C:/www/django/static".
+        # Always use forward slashes, even on Windows.
+        # Don't forget to use absolute paths, not relative paths.
 #    '/home/ubuntu/insertteamshere/teams/static/',
-    '/home/ubuntu/insertteamhere/static',
-)
+        '/home/ubuntu/insertteamhere/static',
+    )
+if socket.gethostname() == 'ChaosRedwood.local':
+    STATICFILES_DIRS = ('/Users/phildini/Dropbox/Projects/ITH-Server/static',)
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -103,14 +121,20 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'insertteamhere.urls'
+if socket.gethostname() == 'blackwillow':
+    ROOT_URLCONF = 'insertteamhere.urls'
+if socket.gethostname() == 'ChaosRedwood.local':
+    ROOT_URLCONF = 'ITH-Server.urls'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    '/home/ubuntu/insertteamhere/templates'
-)
+if socket.gethostname() == 'blackwillow':
+    TEMPLATE_DIRS = (
+        # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+        # Always use forward slashes, even on Windows.
+        # Don't forget to use absolute paths, not relative paths.
+        '/home/ubuntu/insertteamhere/templates'
+    )
+if socket.gethostname() == 'ChaosRedwood.local':
+    TEMPLATE_DIRS = ('/Users/phildini/Dropbox/Projects/ITH-Server/templates')
 
 INSTALLED_APPS = (
     'django.contrib.auth',
