@@ -92,7 +92,7 @@ if socket.gethostname() == 'blackwillow':
 #    '/home/ubuntu/insertteamshere/teams/static/',
         '/home/ubuntu/insertteamhere/static',
     )
-if socket.gethostname() == 'ChaosRedwood.local':
+if "haos" in socket.gethostname():
     STATICFILES_DIRS = ('/Users/phildini/Dropbox/Projects/Web/ITH-Server/static',)
 
 # List of finder classes that know how to find static files in
@@ -123,7 +123,7 @@ MIDDLEWARE_CLASSES = (
 
 if socket.gethostname() == 'blackwillow':
     ROOT_URLCONF = 'insertteamhere.urls'
-if socket.gethostname() == 'ChaosRedwood.local':
+if "haos" in socket.gethostname():
     ROOT_URLCONF = 'ITH-Server.urls'
 
 if socket.gethostname() == 'blackwillow':
@@ -133,7 +133,7 @@ if socket.gethostname() == 'blackwillow':
         # Don't forget to use absolute paths, not relative paths.
         '/home/ubuntu/insertteamhere/templates'
     )
-if socket.gethostname() == 'ChaosRedwood.local':
+if "haos" in socket.gethostname():
     TEMPLATE_DIRS = ('/Users/phildini/Dropbox/Projects/Web/ITH-Server/templates')
 
 INSTALLED_APPS = (
