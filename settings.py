@@ -23,11 +23,11 @@ if socket.gethostname() == 'blackwillow':
         }
     }
 
-if socket.gethostname() == 'ChaosRedwood.local':
+if "haos" in socket.gethostname():
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite$
-            'NAME': '/Users/phildini/Dropbox/Projects/ITH-Server/ith.db',                      # Or path to database file if using sqlite3.
+            'NAME': '/Users/phildini/Dropbox/Projects/Web/ITH-Server/ith.db',                      # Or path to database file if using sqlite3.
             'USER': '',                      # Not used with sqlite3.
             'PASSWORD': '',                  # Not used with sqlite3.
             'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -93,7 +93,7 @@ if socket.gethostname() == 'blackwillow':
         '/home/ubuntu/insertteamhere/static',
     )
 if socket.gethostname() == 'ChaosRedwood.local':
-    STATICFILES_DIRS = ('/Users/phildini/Dropbox/Projects/ITH-Server/static',)
+    STATICFILES_DIRS = ('/Users/phildini/Dropbox/Projects/Web/ITH-Server/static',)
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -134,7 +134,7 @@ if socket.gethostname() == 'blackwillow':
         '/home/ubuntu/insertteamhere/templates'
     )
 if socket.gethostname() == 'ChaosRedwood.local':
-    TEMPLATE_DIRS = ('/Users/phildini/Dropbox/Projects/ITH-Server/templates')
+    TEMPLATE_DIRS = ('/Users/phildini/Dropbox/Projects/Web/ITH-Server/templates')
 
 INSTALLED_APPS = (
     'django.contrib.auth',
